@@ -13,6 +13,7 @@ dotenv.config();
 
 //fire routes
 app.use(require('./routes/get_contact_list'));
+app.use(require('./routes/update_contact_list'));
 
 //create server
 app.listen(8000, ()=>{
