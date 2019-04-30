@@ -22,7 +22,8 @@ app.use(body_parser.json());
 //fire routes
 app.use('/v1', require('./routes/get_contact_list'));
 // app.use(require('./routes/update_contact_list'));
-// app.use(require('./routes/create_contact')); catch 404 and forward to error
+ app.use('/v1', require('./routes/create_contact')); 
+ // catch 404 and forward to error
 // handler
 app.use(function (req, res, next) {
     const err = new Error('Not found');
@@ -53,7 +54,7 @@ app.use(function (err, req, res, next) {
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '5000');
 app.set('port', port);
 
 /**
@@ -127,6 +128,6 @@ function onListening() {
     var bind = typeof addr === 'string'
         ? 'pipe ' + addr
         : 'port ' + addr.port;
-    console.log('server server')
+    // console.log('server server')
     console.log('Listening on ' + bind);
 }
