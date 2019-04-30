@@ -5,7 +5,7 @@ const router = express.Router();
 const knex = require('../db/knex');
 const Joi = require('joi');
 
-// contact list
+// create new contact
 const create_contact_list = async(req, res, next) => {
     try {
 
@@ -65,7 +65,7 @@ const create_contact_list = async(req, res, next) => {
 
 }
 
-//get contact list api
+//create new contact api
 router.post('/api/create_contact_list', create_contact_list);
 
 module.exports = router;

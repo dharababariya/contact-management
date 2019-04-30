@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex');
 
-// contact list
+// update contact list
 const update_contact_list = async(req, res, next) => {
 
     try {
@@ -23,6 +23,6 @@ const update_contact_list = async(req, res, next) => {
 
 }
 
-//get contact list api
+//update contact list api
 router.put('/api/update_contact_list', update_contact_list);
 module.exports = router;
