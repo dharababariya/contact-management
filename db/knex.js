@@ -7,6 +7,7 @@ const knex = require('knex')({
       min: 2,
       max: 10
     },
+    ssl : true,
     debug: false
   });
 
