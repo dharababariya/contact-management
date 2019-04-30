@@ -2,6 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
+
 const knex = require('../db/knex');
 
 // contact list
@@ -17,6 +18,6 @@ const contact_list = async(req, res, next) => {
 }
 
 //get contact list api
-router.get('/v1/api/get_contact_list', contact_list);
+router.get('/api/get_contact_list', contact_list);
 
 module.exports = router;
