@@ -5,13 +5,13 @@ const router = express.Router();
 
 const knex = require('../db/knex');
 
-// delete contact 
+// delete contact
 const delete_contact_list = async(req, res, next) => {
 
     try {
         const result = await knex("public.contact_list")
             .delete()
-            .where("id", "=", req.query.id)
+            .where("id", "=", req.body.id)
         return res
             .status(200)
             .send({status: 'Successfully Deteted'});
