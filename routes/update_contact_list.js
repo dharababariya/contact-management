@@ -10,16 +10,16 @@ const update_contact_list = async(req, res, next) => {
     try {
         const result = await knex("public.contact_list")
             .update("name", req.body.name)
-            .where("id", "=", req.body.id).returning("*")
+            .where("id", "=", req.body.id)
+            .returning("*")
         return res
             .status(200)
             .send({status: 'SUCCESS', data: result});
     } catch (error) {
         console.error(error.message);
         res.status(500);
- 
+
     }
-    
 
 }
 

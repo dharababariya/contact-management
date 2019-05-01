@@ -27,6 +27,8 @@ app.use('/v1', require('./routes/create_contact'));
 app.use('/v1', require('./routes/delete_contact')); 
 
 app.use('/v1', require('./routes/update_contact_list'));
+
+app.use('/v1', require('./routes/otp_generate'));
  // catch 404 and forward to error
 // handler
 app.use(function (req, res, next) {
