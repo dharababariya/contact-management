@@ -31,8 +31,7 @@ const otp_generate = async(req, res, next) => {
             }
         
             const stores_otp = await knex("public.contact_list")
-                .insert({otp: generateOTP()})
-                .where("contact_no", req.body.contact_no)
+                .insert({otp: generateOTP()}).returning("contact_no")
             res
                 .status(200)
                 .send({Status: 'SUCCESS'})
