@@ -12,18 +12,21 @@ const verify_otp = async(req, res, next) => {
 
         const result = await knex("public.contact_list")
             .select('otp')
-            .where("otp", req.body.otp)
-        // console.log(result)
+            .where("contact_no", req.body.contact_no)
 
-        if (result == '') {
-            res
-                .status(401)
-                .send({Success: "Failure", Message: "Enter valid otp"})
-        } else {
+        const desired_result = result[0];
 
+        const final_result = desired_result.otp;
+
+        if (final_result == req.body.otp) {
             res
                 .status(200)
                 .send({Status: 'SUCCESS'})
+
+        } else {
+            res
+                .status(401)
+                .send({Success: "Failure", Message: "Enter valid otp"})
 
         }
 
