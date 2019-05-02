@@ -2,10 +2,8 @@
 
 const express = require('express');
 const router = express.Router();
-
 const knex = require('../db/knex');
 
-// otp generate
 const otp_generate = async(req, res, next) => {
     try {
 
@@ -29,9 +27,11 @@ const otp_generate = async(req, res, next) => {
                 }
                 return OTP;
             }
-        
-            const stores_otp = await knex("public.contact_list")
-                .insert({otp: generateOTP()}).returning("contact_no")
+            const result = await knex("public.contact_list")
+                .update("otp", generateOTP())
+                .where("contact_no", "=", req.body.contact_no)
+                .returning("*")
+            // console.log(result)
             res
                 .status(200)
                 .send({Status: 'SUCCESS'})
@@ -45,7 +45,7 @@ const otp_generate = async(req, res, next) => {
 
 }
 
-// console.log( generateOTP() ); oto generate api
-router.post('/api/otp/generate', otp_generate);
+// otp generate api
+router.put('/api/otp/generate', otp_generate);
 
 module.exports = router;
