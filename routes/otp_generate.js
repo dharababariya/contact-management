@@ -15,7 +15,9 @@ const otp_generate = async(req, res, next) => {
             res
                 .status(401)
                 .send({Success: "Failure", Message: "Enter valid contact number"})
+
         } else {
+
             // Function to generate OTP
             const generateOTP = () => {
 
@@ -27,11 +29,13 @@ const otp_generate = async(req, res, next) => {
                 }
                 return OTP;
             }
+
             const result = await knex("public.contact_list")
                 .update("otp", generateOTP())
                 .where("contact_no", "=", req.body.contact_no)
                 .returning("*")
             // console.log(result)
+
             res
                 .status(200)
                 .send({Status: 'SUCCESS'})

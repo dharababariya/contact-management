@@ -20,13 +20,13 @@ const body_parser = require('body-parser');
 app.use(body_parser.json());
 
 // routes
-app.use('/v1', require('./routes/get_contact_list'));
+app.use('/v1', require('./routes/get_contact'));
 
 app.use('/v1', require('./routes/create_contact')); 
 
 app.use('/v1', require('./routes/delete_contact')); 
 
-app.use('/v1', require('./routes/update_contact_list'));
+app.use('/v1', require('./routes/update_contact'));
 
 app.use('/v1', require('./routes/otp_generate'));
 
