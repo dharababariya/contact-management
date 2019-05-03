@@ -5,6 +5,7 @@ const router = express.Router();
 const knex = require('../db/knex');
 
 const otp_generate = async(req, res, next) => {
+    
     try {
 
         const result = await knex("public.contact_list")

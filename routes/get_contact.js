@@ -9,11 +9,11 @@ const knex = require('../db/knex');
 const contact_list = async(req, res, next) => {
 
     const result = await knex("public.contact_list").select("*");
-    console.log(result);
+    // console.log(result);
 
     res
         .status(200)
-        .send({message: "get all contact", result: result})
+        .send({message: "get all contact"})
 
 }
 

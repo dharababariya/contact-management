@@ -16,7 +16,7 @@ const update_contact_list = async(req, res, next) => {
 
         return res
             .status(200)
-            .send({status: 'SUCCESS', data: result});
+            .send({status: 'SUCCESS'});
 
     } catch (error) {
 

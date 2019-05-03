@@ -57,7 +57,7 @@ const create_contact_list = async(req, res, next) => {
                 res.json({
                     status: 'success',
                     message: 'successfully added new contact',
-                    data: Object.assign(result)
+                    
                 });
 
             }
